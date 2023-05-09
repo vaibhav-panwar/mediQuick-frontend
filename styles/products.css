@@ -1,0 +1,73 @@
+#products1,
+#products2 {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.crd {
+    background-color: white;
+    padding: 10px;
+}
+
+.crd:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#pcontent>h2 {
+    font-size: 20px;
+    font-weight: 550;
+    height: 60px;
+}
+
+#pimg>img {
+    width: 100%;
+    height: 250px;
+}
+
+.pPrice {
+    text-decoration: line-through;
+}
+
+#pdisc {
+    color: green;
+}
+.items{
+    background-color: gainsboro;
+}
+#op {
+    margin-top: 5px;
+    font-size: 20px;
+}
+#btns{
+    margin: 20px;
+    margin-left: 250px;
+}
+#btns button{
+  width: 60px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+#bigcont{
+    display: flex;
+}
+.filters{
+    width: 30%;
+    padding: 10px;
+    background-color: rgb(241, 225, 225);
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+form p{
+    font-size: 18px;
+    margin: 5px;
+}
+.rad{
+    margin: 3px;
+}

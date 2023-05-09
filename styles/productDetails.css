@@ -1,0 +1,73 @@
+#bigcont>div{
+    display:flex;
+    padding: 50px 50px 0px 50px;
+}
+.imgcont{
+ width:40%;
+ margin-right: 50px;
+}
+.imgcont img{
+    width: 100%;
+}
+.content{
+    width: 80%;
+}
+.title{
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.desc{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.head{
+    font-weight: 600;
+}
+.prt{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.pr{
+    font-size: 25px;
+}
+.ogprice{
+    text-decoration: line-through;
+}
+.discount{
+    color: green;
+    margin-left: 20px;
+}
+#bt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+#b1{
+    display: flex;
+    margin-right: 20px;
+}
+#b1 p{
+    font-size: 30px;
+    margin: 10px;
+}
+#b1 button{
+  width: 30px;
+  height: 30px;
+  font-size: 25px;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  color: azure;
+  margin: 10px;
+}
+#bt>button{
+    height: 40px;
+    width: 200px;
+    font-size: 25px;
+    color: white;
+    background-color: orangered;
+    border: none;
+    border-radius: 5px;
+}

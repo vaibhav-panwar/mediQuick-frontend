@@ -1,0 +1,84 @@
+#bigcont>div {
+    display: flex;
+    padding: 10px 50px 10px 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: 10px;
+}
+
+.imgcont {
+    width: 40%;
+   margin-right: 10px;
+}
+
+.imgcont img {
+    width: 100%;
+}
+
+.content {
+    width: 80%;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.bran,.quan{
+ font-size: 20px;
+ margin-bottom: 10px;
+}
+.bran{
+    color: orangered;
+}
+.prt {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.pr {
+    font-size: 20px;
+}
+
+.ogprice {
+    text-decoration: line-through;
+}
+
+.discount {
+    color: green;
+    margin-left: 20px;
+}
+.cont{
+    display: flex;
+}
+#bill{
+    width: 80%;
+}
+
+#bill{
+    margin: 10px;
+}
+#bill>p{
+    font-size: 20px;
+    margin: 15px;
+}
+#bill>button{
+    width: 80%;
+    height: 40px;
+    border: none;
+    background-color: orangered;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    margin-left: 40px;
+}
+#bill>button:hover{
+    cursor: pointer;
+}
+
+#tbill,#ship,#tot{
+    color: blue;
+}
+#discount{
+    color: green;
+}

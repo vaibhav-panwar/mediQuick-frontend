@@ -1,0 +1,184 @@
+.slid-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slid {
+    display: flex;
+    width: 600%;
+    transition: transform 0.5s ease;
+}
+
+.slid img {
+    width: 100%;
+    height: 200px;
+
+}
+
+.dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: gray;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: black;
+}
+
+#part4 {
+    border-bottom: 1px solid gainsboro;
+}
+
+#part4 h1 {
+    width: 750px;
+    margin: 20px auto;
+}
+
+#big-cont {
+    background-color: rgb(232, 230, 230);
+}
+
+#img1 {
+    width: 80%;
+    margin: auto;
+    padding: 20px 0px;
+}
+
+#img1>img {
+    width: 100%;
+}
+
+/* card slider begins */
+.slide-container {
+    /* max-width: 1120px; */
+    width: 100%;
+}
+
+.slide-content {
+    margin: 0 0px;
+    overflow: hidden;
+    /* border-radius: 25px; */
+}
+
+.card-slide {
+    /* border-radius: 25px; */
+    background-color: #FFF;
+
+}
+
+.card-slide:hover {
+    background-color: beige;
+
+}
+
+.image-content,
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.image-content {
+    position: relative;
+    row-gap: 5px;
+}
+
+
+.card-image .card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.description {
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+}
+
+.swiper-navBtn {
+    color: #6E93f7;
+    transition: color 0.3s ease;
+}
+
+.swiper-navBtn:hover {
+    color: #4070F4;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+    font-size: 35px;
+}
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+#big-cont>h2 {
+    margin: 20px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+#products1,
+#products2 {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.crd {
+    background-color: white;
+    padding: 10px;
+}
+
+.crd:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#pcontent>h2 {
+    font-size: 20px;
+    font-weight: 550;
+    height: 60px;
+}
+
+#pimg>img {
+    width: 100%;
+    height: 250px;
+}
+
+.pPrice {
+    text-decoration: line-through;
+}
+
+#pdisc {
+    color: green;
+}
+
+#op {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+
