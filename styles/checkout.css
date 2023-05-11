@@ -1,0 +1,7 @@
+.sdf{
+    display: flex;
+}
+.sdf>input{
+    width: 15px;
+    height: 15px;
+}

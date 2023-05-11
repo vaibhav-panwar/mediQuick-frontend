@@ -5,6 +5,7 @@ let address = document.getElementById("address")
 let pincode = document.getElementById("pin");
 let type = document.getElementById("type");
 let sub = document.getElementById("sub");
+let cont1 = document.querySelector(".cont1");
 
 sub.addEventListener("click",()=>{
     let obj = {
@@ -30,9 +31,43 @@ sub.addEventListener("click",()=>{
         console.log(err);
     })
 })
+fetchData();
 
 
+function fetchData(){
+    fetch("https://vast-cyan-turtle-wig.cyclic.app/address",{
+        headers: {
+            'Content-type': 'Application/json',
+            'authorization': `Bearer ${token}`
+        }
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+        cont1.innerHTML="";
+        for(let i=0;i<data.length;i++){
+            let a = createCard(data[i].address,data[i].pincode,data[i].type);
+            cont1.append(a);
+        }
+    })
+    .catch((err)=>console.log(err))
+}
 
+function createCard(address,pincode,type){
+    let card = document.createElement("div");
+    card.setAttribute("class","crd");
+    card.innerHTML = `
+                    <p>${address}</p>
+                    <p>${pincode}</p>
+                    <p>${type}</p>
+                `
+    let btn = document.createElement("button");
+    btn.innerText="Place Order";
+    btn.addEventListener("click",()=>{
+        alert("jmd");
+    })
+    card.append(btn);
+    return card;
+}
 
 
 

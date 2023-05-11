@@ -6,9 +6,7 @@ let tot = document.getElementById("tot");
 
 let bigcont = document.getElementById("bigcont");
 fetchData()
-document.querySelector("#bill>button").addEventListener("click",()=>{
-    alert("Order Placed Successfully")
-})
+
 function fetchData(){
     console.log(123);
     fetch(`https://vast-cyan-turtle-wig.cyclic.app/cart`,{
@@ -38,6 +36,11 @@ function fetchData(){
             shipping.innerText = `Free Shipping`
             tot.innerText = `Rs. ${disbill}`
         }
+        document.querySelector("#bill>button").addEventListener("click", () => {
+            localStorage.setItem("orderData",JSON.stringify(data))
+            location.href = "./checkout.html"
+            
+        })
 
     })
     .catch((err)=>console.log(err))
