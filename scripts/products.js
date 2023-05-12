@@ -1,4 +1,5 @@
 let productDiv = document.getElementById("products1");
+let token = localStorage.getItem("logintoken");
 let btns = document.getElementById("btns");
 let filter = {}
 let query = new URLSearchParams(filter);
@@ -122,13 +123,23 @@ function updateFilters() {
     })
 }
 //signup
-let token = localStorage.getItem("logintoken");
+
 if (token) {
     document.getElementById("login").style.display = "none";
     document.getElementById("sign").style.display = "none";
-    let a = document.createElement("a");
-    a.innerText = localStorage.getItem("username");
-    document.getElementById("signup").append(a);
+    let a1 = document.createElement("a");
+    a1.setAttribute("href", "./orders.html");
+    a1.innerText = localStorage.getItem("username");
+    let a2 = document.createElement("a");
+    a2.innerText = "Log Out";
+    a2.setAttribute("href", "#");
+    a2.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.setItem("username", "");
+        localStorage.setItem("logintoken", "");
+        window.location.reload()
+    })
+    document.getElementById("signup").append(a1, a2);
 }
 let login = document.getElementById("login");
 login.addEventListener("click", () => {
@@ -166,6 +177,7 @@ submit2.addEventListener("click", () => {
         .then((res) => res.json())
         .then((data) => {
             alert(data.msg);
+            window.location.reload();
         })
         .catch((err) => {
             console.log(err);
@@ -198,6 +210,7 @@ submit1.addEventListener("click", () => {
             a.innerText = data.user;
             document.getElementById("signup").append(a);
             alert(data.msg);
+            window.location.reload()
         })
         .catch((err) => {
             console.log(err)

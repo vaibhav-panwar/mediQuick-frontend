@@ -1,83 +1,81 @@
-let bigcont = document.getElementById("bigcont");
-let id = localStorage.getItem("productDetails");
-let count = 0;
-let pcount = document.getElementById("count");
-let plus = document.getElementById("plus");
-let minus = document.getElementById("minus");
 let token = localStorage.getItem("logintoken");
-let addtocart = document.getElementById("atoc");
-
-pcount.innerText = count;
-plus.addEventListener("click",()=>{
-    count++;
-    pcount.innerText = count;
-})
-minus.addEventListener("click", () => {
-    if(count>0){
-        count = count - 1;
-        pcount.innerText = count;
-    }
-})
+let bigcont = document.getElementById("bigcont");
 fetchData()
-let proData = JSON.parse(localStorage.getItem("cdata"));
-addtocart.addEventListener("click",()=>{
-    let obj = {
-        productId:proData._id,
-        productTitle:proData.title,
-        productImg:proData.img,
-        productPrice:proData.price,
-        productDiscountPrice:proData.discountPrice,
-        productBrand:proData.brand,
-        quantity:count
-    }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/cart/add`,{
-        method:'POST',
-        headers:{
-            'Content-type':'Application/json',
-            'authorization':`Bearer ${token}`
-        },
-        body:JSON.stringify(obj)
+function fetchData(){
+    fetch("https://vast-cyan-turtle-wig.cyclic.app/order", {
+        headers: {
+            'Content-type': 'Application/json',
+            'authorization': `Bearer ${token}`
+        }
     })
     .then((res)=>res.json())
     .then((data)=>{
-        alert(data.msg)
-        console.log(data);
+        bigcont.innerHTML = "";
+        data.forEach((stat)=>{
+            let a = createCard(stat.items,stat.bill,stat.address,stat.status,stat.Date,stat._id);
+            bigcont.append(a);
+        })
     })
     .catch((err)=>{
-        alert(err)
         console.log(err);
     })
-})
-function fetchData(){
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/product/${id}`)
-    .then((res)=>{
-        return res.json()
-    })
-    .then((data)=>{
-        localStorage.setItem("cdata",JSON.stringify(data));
-        bigcont.innerHTML="";
-        let a = createCard(data.title,data.img,data.price,data.discountPrice,data.description);
-        bigcont.append(a);
-    })
-    .catch((error)=>{
-        console.log(error)
-    })
 }
-
-function createCard(title,img,ogprice,disprice,desc){
-    desc = desc.split("\n");
-    let discount = Math.floor(((ogprice-disprice)/ogprice)*100);
+function createCard(items,bill,address,status,date,id){
+    let datee = convertintodate(date);
     let card = document.createElement("div");
-    card.innerHTML =`<div class="imgcont">
-        <img src="${img}" alt="image">
-     </div>
-     <div class="content">
-        <h1 class="title">${title}</h1>
-        <p class="desc"><span class="head">${desc[0]}</span>${desc[1]}</p>
-        <p class="prt">Rs.<span class="ogprice">${ogprice}</span>   <span class="discount">${discount}%off</span></p>
-        <p class="pr">Rs.<span class="disprice">${disprice}</span></p>
-     </div>`
-     return card
+    card.setAttribute("class","crd");
+    let imgcont = document.createElement("div");
+    imgcont.setAttribute("class","imgcont");
+    for(let i=0;i<items.length;i++){
+        let img = document.createElement("img");
+        img.setAttribute("src", `${items[i].productImg}`);
+        imgcont.append(img);
+    }
+    let content  = document.createElement("div");
+    content.setAttribute("class","content");
+    let p3 = document.createElement("p");
+    p3.innerText = `Order ID : ${id}`
+    let p1 = document.createElement("p");
+    p1.innerText = `Bill: Rs. ${bill} `;
+    let p2 = document.createElement("p");
+    p2.innerText = `Address : ${address}`;
+    let p4 = document.createElement("p");
+    p4.innerText = `Status :${status}`;
+    let p5 = document.createElement("p");
+    p5.innerText = `Order Date: ${datee}`
+    let b1 = document.createElement("button");
+    b1.setAttribute("class","cancel");
+    b1.innerText = "Cancel Order";
+    b1.addEventListener("click",()=>{
+        fetch(`https://vast-cyan-turtle-wig.cyclic.app/order/delete/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-type': 'Application/json',
+                'authorization': `Bearer ${token}`
+            }
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+            alert(data.msg);
+            window.location.reload()
+        })
+        .catch((err)=>{
+            alert(err);
+            console.log(err);
+        })
+    })
+    content.append(p3,p1,p2,p4,p5,b1);
+    card.append(imgcont,content);
+    return card
+}
+function convertintodate(value) {
+    if (value == "") {
+        return ""
+    }
+    let timestamp = value
+    let date = new Date(timestamp);
+    let string = date.toDateString();
+    return string;
 }
 
 //signup
@@ -85,18 +83,18 @@ if (token) {
     document.getElementById("login").style.display = "none";
     document.getElementById("sign").style.display = "none";
     let a1 = document.createElement("a");
-    a1.setAttribute("href", "./orders.html");
+    a1.setAttribute("href","./orders.html");
     a1.innerText = localStorage.getItem("username");
     let a2 = document.createElement("a");
     a2.innerText = "Log Out";
-    a2.setAttribute("href", "#");
-    a2.addEventListener("click", (e) => {
+    a2.setAttribute("href","#");
+    a2.addEventListener("click",(e)=>{
         e.preventDefault();
-        localStorage.setItem("username", "");
-        localStorage.setItem("logintoken", "");
+        localStorage.setItem("username","");
+        localStorage.setItem("logintoken","");
         window.location.reload()
     })
-    document.getElementById("signup").append(a1, a2);
+    document.getElementById("signup").append(a1,a2);
 }
 let login = document.getElementById("login");
 login.addEventListener("click", () => {

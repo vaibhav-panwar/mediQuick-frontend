@@ -82,3 +82,21 @@
 #discount{
     color: green;
 }
+.up{
+    display: flex;
+    margin: 20px 0px;
+
+}
+.up>button{
+    width: 25px;
+    height: 25px;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin: 0px 10px;
+    font-size: 20px;
+}
+.up>p{
+    font-size: 25px;
+}

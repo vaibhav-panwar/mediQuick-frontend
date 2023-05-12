@@ -142,20 +142,33 @@ function createCard(name, img, ogprice, disprice,id) {
     })
     return card;
 }
+
+
+//signup
 let token = localStorage.getItem("logintoken");
-if(token){
+if (token) {
     document.getElementById("login").style.display = "none";
     document.getElementById("sign").style.display = "none";
-    let a = document.createElement("a");
-    a.innerText = localStorage.getItem("username");
-    document.getElementById("signup").append(a);
+    let a1 = document.createElement("a");
+    a1.setAttribute("href", "./orders.html");
+    a1.innerText = localStorage.getItem("username");
+    let a2 = document.createElement("a");
+    a2.innerText = "Log Out";
+    a2.setAttribute("href", "#");
+    a2.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.setItem("username", "");
+        localStorage.setItem("logintoken", "");
+        window.location.reload()
+    })
+    document.getElementById("signup").append(a1, a2);
 }
 let login = document.getElementById("login");
-login.addEventListener("click",()=>{
+login.addEventListener("click", () => {
     document.querySelector(".popup").classList.add("active");
 })
 let closebtn = document.querySelector(".close-btn");
-closebtn.addEventListener("click",()=>{
+closebtn.addEventListener("click", () => {
     document.querySelector(".popup").classList.remove("active");
 })
 let signup = document.getElementById("sign");
@@ -170,57 +183,59 @@ let submit2 = document.getElementById("submit2");
 let sname = document.getElementById("name2");
 let semail = document.getElementById("email2");
 let spass = document.getElementById("password2");
-submit2.addEventListener("click",()=>{
-let obj = {
-    name:sname.value,
-    email:semail.value,
-    password:spass.value
-}
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/register`,{
-        method:'POST',
-        headers:{
-            'Content-type':'Application/json'
-        },
-        body:JSON.stringify(obj)
-    })
-    .then((res)=>res.json())
-    .then((data)=>{
-        alert(data.msg);
-    })
-    .catch((err)=>{
-        console.log(err);
-        alert(err);
-    })
-})
-let submit1= document.getElementById("submit1");
-let lemail = document.getElementById("email");
-let lpass = document.getElementById("password");
-
-submit1.addEventListener("click",()=>{
-    let obj={
-        email:lemail.value,
-        password:lpass.value
+submit2.addEventListener("click", () => {
+    let obj = {
+        name: sname.value,
+        email: semail.value,
+        password: spass.value
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/login`,{
+    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/register`, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'
         },
         body: JSON.stringify(obj)
     })
-    .then((res)=>res.json())
-    .then((data)=>{
-        localStorage.setItem("logintoken",data.token);
-        localStorage.setItem("username",data.user);
-        document.getElementById("login").style.display="none";
-        document.getElementById("sign").style.display = "none";
-        let a = document.createElement("a");
-        a.innerText = data.user;
-        document.getElementById("signup").append(a);
-        alert(data.msg);
+        .then((res) => res.json())
+        .then((data) => {
+            alert(data.msg);
+            window.location.reload();
+        })
+        .catch((err) => {
+            console.log(err);
+            alert(err);
+        })
+})
+let submit1 = document.getElementById("submit1");
+let lemail = document.getElementById("email");
+let lpass = document.getElementById("password");
+
+submit1.addEventListener("click", () => {
+    let obj = {
+        email: lemail.value,
+        password: lpass.value
+    }
+    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/login`, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'Application/json'
+        },
+        body: JSON.stringify(obj)
     })
-    .catch((err)=>{
-        console.log(err)
-        alert(err)
-    })
+        .then((res) => res.json())
+        .then((data) => {
+            localStorage.setItem("logintoken", data.token);
+            localStorage.setItem("username", data.user);
+            document.getElementById("login").style.display = "none";
+            document.getElementById("sign").style.display = "none";
+            let a = document.createElement("a");
+            a.innerText = data.user;
+            document.getElementById("signup").append(a);
+            alert(data.msg);
+            window.location.reload()
+        })
+        .catch((err) => {
+            console.log(err)
+            alert(err)
+        })
 })

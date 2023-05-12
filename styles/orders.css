@@ -1,0 +1,30 @@
+.crd{
+    display: flex;
+    padding: 20px;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+}
+.imgcont{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+.imgcont>img{
+width: 120px;
+height: 90px;
+margin: 5px 10px 0px 0px;
+}
+.content>p{
+    font-size: 25px;
+    margin: 10px 0px 10px 0px;
+}
+.content button{
+    width: 150px;
+    height: 30px;
+    font-size: 20px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
