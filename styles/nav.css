@@ -66,16 +66,22 @@
     align-items: center;
 }
 
-
-#part2_div1>:nth-child(1)>input {
-    width: 200px;
-    height: 30px;
-}
-
-#part2_div1>:nth-child(2)>input {
+#part2_div1>:nth-child(1)>input[type=text] {
     width: 300px;
     height: 30px;
     margin-left: 2px;
+    border: none;
+}
+#part2_div1>:nth-child(1){
+    border: 1px solid black;
+}
+#part2_div1>:nth-child(1) button{
+    width: 30px;
+    border: none;
+}
+
+#part2_div1 form{
+    display: flex;
 }
 
 #part2_div2 {
