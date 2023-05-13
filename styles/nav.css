@@ -25,7 +25,10 @@
     font-size: 90%;
     font-weight: 700;
 }
-
+#site{
+    color: green;
+    font-size: 20px;
+}
 .part1_div a button {
     text-decoration: none;
     color: black;
