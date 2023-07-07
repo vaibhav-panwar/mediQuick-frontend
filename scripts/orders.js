@@ -2,7 +2,7 @@ let token = localStorage.getItem("logintoken");
 let bigcont = document.getElementById("bigcont");
 fetchData()
 function fetchData(){
-    fetch("https://vast-cyan-turtle-wig.cyclic.app/order", {
+    fetch("https://mediquick-backend.onrender.com/order", {
         headers: {
             'Content-type': 'Application/json',
             'authorization': `Bearer ${token}`
@@ -47,7 +47,7 @@ function createCard(items,bill,address,status,date,id){
     b1.setAttribute("class","cancel");
     b1.innerText = "Cancel Order";
     b1.addEventListener("click",()=>{
-        fetch(`https://vast-cyan-turtle-wig.cyclic.app/order/delete/${id}`, {
+        fetch(`https://mediquick-backend.onrender.com/order/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-type': 'Application/json',
@@ -122,7 +122,7 @@ submit2.addEventListener("click", () => {
         email: semail.value,
         password: spass.value
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/register`, {
+    fetch(`https://mediquick-backend.onrender.com/user/register`, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'
@@ -148,7 +148,7 @@ submit1.addEventListener("click", () => {
         email: lemail.value,
         password: lpass.value
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/login`, {
+    fetch(`https://mediquick-backend.onrender.com/user/login`, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'

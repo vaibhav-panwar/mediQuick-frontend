@@ -30,7 +30,7 @@ addtocart.addEventListener("click",()=>{
         productBrand:proData.brand,
         quantity:count
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/cart/add`,{
+    fetch(`https://mediquick-backend.onrender.com/cart/add`,{
         method:'POST',
         headers:{
             'Content-type':'Application/json',
@@ -49,7 +49,7 @@ addtocart.addEventListener("click",()=>{
     })
 })
 function fetchData(){
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/product/${id}`)
+    fetch(`https://mediquick-backend.onrender.com/product/${id}`)
     .then((res)=>{
         return res.json()
     })
@@ -124,7 +124,7 @@ submit2.addEventListener("click", () => {
         email: semail.value,
         password: spass.value
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/register`, {
+    fetch(`https://mediquick-backend.onrender.com/user/register`, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'
@@ -150,7 +150,7 @@ submit1.addEventListener("click", () => {
         email: lemail.value,
         password: lpass.value
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/login`, {
+    fetch(`https://mediquick-backend.onrender.com/user/login`, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'

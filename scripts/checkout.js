@@ -16,7 +16,7 @@ sub.addEventListener("click", () => {
         pincode: pin.value,
         type: typ.value
     }
-    fetch("https://vast-cyan-turtle-wig.cyclic.app/address/add", {
+    fetch("https://mediquick-backend.onrender.com/address/add", {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json',
@@ -39,7 +39,7 @@ fetchData();
 
 
 function fetchData() {
-    fetch("https://vast-cyan-turtle-wig.cyclic.app/address", {
+    fetch("https://mediquick-backend.onrender.com/address", {
         headers: {
             'Content-type': 'Application/json',
             'authorization': `Bearer ${token}`
@@ -96,7 +96,7 @@ function createCard(address, pincode, type, id) {
             bill,
             address:`${address} , ${pincode}`
         }
-        fetch("https://vast-cyan-turtle-wig.cyclic.app/order/add",{
+        fetch("https://mediquick-backend.onrender.com/order/add",{
             method: 'POST',
             headers: {
                 'Content-type': 'Application/json',
@@ -122,7 +122,7 @@ function createCard(address, pincode, type, id) {
     a1.innerText = "Remove";
     a1.addEventListener("click", (e) => {
         e.preventDefault();
-        fetch(`https://vast-cyan-turtle-wig.cyclic.app/address/delete/${id}`, {
+        fetch(`https://mediquick-backend.onrender.com/address/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-type': 'Application/json',
@@ -159,7 +159,7 @@ function createCard(address, pincode, type, id) {
                 pincode: pin.value,
                 type: typ.value
             }
-            fetch(`https://vast-cyan-turtle-wig.cyclic.app/address/update/${id}`, {
+            fetch(`https://mediquick-backend.onrender.com/address/update/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-type': 'Application/json',
@@ -231,7 +231,7 @@ submit2.addEventListener("click", () => {
         email: semail.value,
         password: spass.value
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/register`, {
+    fetch(`https://mediquick-backend.onrender.com/user/register`, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'
@@ -257,7 +257,7 @@ submit1.addEventListener("click", () => {
         email: lemail.value,
         password: lpass.value
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/login`, {
+    fetch(`https://mediquick-backend.onrender.com/user/login`, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'

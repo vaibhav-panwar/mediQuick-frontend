@@ -103,7 +103,7 @@ let productDiv2 = document.getElementById("products2");
 fetchdata(productDiv,1);
 fetchdata(productDiv2,2);
 function fetchdata(appendLoc,pageno){
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/product?limit=12&page=${pageno}`)
+    fetch(`https://mediquick-backend.onrender.com/product?limit=12&page=${pageno}`)
     .then((res)=>res.json())
     .then((data)=>{
         console.log(data);
@@ -189,7 +189,7 @@ submit2.addEventListener("click", () => {
         email: semail.value,
         password: spass.value
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/register`, {
+    fetch(`https://mediquick-backend.onrender.com/user/register`, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'
@@ -215,7 +215,7 @@ submit1.addEventListener("click", () => {
         email: lemail.value,
         password: lpass.value
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/login`, {
+    fetch(`https://mediquick-backend.onrender.com/user/login`, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'

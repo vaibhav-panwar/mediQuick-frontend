@@ -8,7 +8,7 @@ let bigcont = document.getElementById("bigcont");
 fetchData();
 
 function fetchData() {
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/cart`, {
+    fetch(`https://mediquick-backend.onrender.com/cart`, {
         headers: {
             'Content-type': 'Application/json',
             'authorization': `Bearer ${token}`
@@ -82,7 +82,7 @@ function createCard(title, img, ogprice, disprice, brand, quantity, id) {
             let obj = {
                 quantity
             }
-            fetch(`https://vast-cyan-turtle-wig.cyclic.app/cart/update/${id}`, {
+            fetch(`https://mediquick-backend.onrender.com/cart/update/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-type': 'Application/json',
@@ -107,7 +107,7 @@ function createCard(title, img, ogprice, disprice, brand, quantity, id) {
         let obj = {
             quantity
         }
-        fetch(`https://vast-cyan-turtle-wig.cyclic.app/cart/update/${id}`, {
+        fetch(`https://mediquick-backend.onrender.com/cart/update/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-type': 'Application/json',
@@ -132,7 +132,7 @@ function createCard(title, img, ogprice, disprice, brand, quantity, id) {
     a1.innerText = "Remove";
     a1.addEventListener("click",(e)=>{
         e.preventDefault();
-        fetch(`https://vast-cyan-turtle-wig.cyclic.app/cart/delete/${id}`, {
+        fetch(`https://mediquick-backend.onrender.com/cart/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-type': 'Application/json',
@@ -201,7 +201,7 @@ submit2.addEventListener("click", () => {
         email: semail.value,
         password: spass.value
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/register`, {
+    fetch(`https://mediquick-backend.onrender.com/user/register`, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'
@@ -227,7 +227,7 @@ submit1.addEventListener("click", () => {
         email: lemail.value,
         password: lpass.value
     }
-    fetch(`https://vast-cyan-turtle-wig.cyclic.app/user/login`, {
+    fetch(`https://mediquick-backend.onrender.com/user/login`, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'
